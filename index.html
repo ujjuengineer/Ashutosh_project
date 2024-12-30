@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head> 
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, intial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        
+        
+        <style>
+            header {
+                background-color: #333;
+                padding: 10px 20px;
+            }
+
+            .container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .logo {
+                color: #fff;
+                font-size: 24px;
+                margin: 0;
+            }
+
+            nav {
+                position: relative;
+            }
+
+            #menu {
+                display: flex;
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+
+            #menu li {
+                margin-right: 20px;
+            }
+
+            #menu a {
+                text-decoration: none;
+                color: #fff;
+                font-size: 18px;
+                padding: 10px;
+                transition: color 0.3s;
+            }
+
+            #menu a:hover {
+                color: #ff5e57;
+            }
+
+
+            .menu-icon {
+                display: none;
+                font-size: 30px;
+                cursor: pointer;
+            }
+
+
+            @media screen and (max-width: 768px) {
+                #menu {
+                    position: absolute;
+                    top: 50px;
+                    right: 0;
+                    background-color: #333;
+                    width: 200px;
+                    display: none;
+                    flex-direction: column;
+                    padding: 10px 0;
+                }
+
+                #menu li {
+                    margin: 10px 0;
+                }
+
+                .menu-icon {
+                    display: block;
+                }
+
+                #menu.active {
+                    display: flex;
+                }
+            }
+
+            #menu li.active a {
+                color: #090808;
+            }
+
+
+            .scroll-container1 {
+                overflow: hidden;
+                position: relative;
+                width: 100%;
+                background: #f8f8f8;
+            }
+
+            .scroll-content1 {
+                display: flex;
+                animation: scroll 15s linear infinite;
+                width: calc(100% * 2); 
+            }
+
+
+            .recipe-card1 {
+                min-width: 300px; 
+                margin: 10px;
+                background: #fff;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                text-align: center;
+                overflow: hidden;
+            }
+
+            .recipe-card1 img {
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+            }
+
+            .recipe-card1 h2 {
+                padding: 10px;
+                font-size: 18px;
+                color: #333;
+            }
+
+
+            .recipe-card1 {
+                min-width: 300px;
+                margin: 10px;
+                background: #fff;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                text-align: center;
+                overflow: hidden;
+                transition: background-color 0.5s, transform 0.3s, color 0.5s;
+            }
+
+            .recipe-card1 img {
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+            }
+
+            .recipe-card1 h2 {
+                padding: 10px;
+                font-size: 18px;
+                color: #333;
+                transition: color 0.5s; 
+            }
+
+            .recipe-card1:hover {
+                background-color: #ff5e57; 
+                transform: scale(1.05); 
+                color: #fff; 
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            }
+
+            .recipe-card1:hover h2 {
+                color: #fff; 
+            }
+
+            .recipe-card1:hover img {
+                filter: brightness(0.8); 
+            }
+
+
+            .contact {
+                padding: 50px 20px;
+                background-color: #f8f9fa;
+                text-align: center;
+            }
+
+            .contact h2 {
+                font-size: 28px;
+                margin-bottom: 20px;
+                color: #333;
+            }
+
+            #contact-form {
+                max-width: 500px;
+                margin: 0 auto;
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            #contact-form input,
+            #contact-form textarea {
+                padding: 10px;
+                font-size: 1rem;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+
+            #contact-form button {
+                padding: 10px;
+                font-size: 1rem;
+                background-color: #ff5e57;
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+
+            #contact-form button:hover {
+                background-color: #e0433f;
+            }
+
+            #otp {
+                display: none;
+            }
+
+            @keyframes scroll {
+                from {
+                    transform: translateX(0);
+                }
+                to {
+                    transform: translateX(-50%);
+                }
+            }
+
+        </style>
+        <title>Cricket Accessories</title>
+    </head>
+    <body>
+       <!-- <header>
+        <div class="cotainer">
+            <h1 class="logo">Delicious Recipe</h1>
+            <nav>
+                <div class="menu-icon">&#9776;</div>
+              <ul>
+                <li>Home</li>
+                <li>About</li>
+                <li>Recipes</li>
+                <li>Contact</li>
+              </ul>  
+            </nav>
+            </div>
+        </div>
+       </header>  -->
+       <header>
+        <div class="container">
+            <h1 class="logo">Cricket accessories</h1>
+            <nav>
+                <div class="menu-icon" id="menu-icon">&#9776;</div>
+                <ul id="menu">
+                    <li><a href="#homee">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#recipee">Accessories</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>  
+            </nav>
+        </div>
+    </header>
+    
+
+       <section class="hero">
+        <div class="hero-section" id="homee">
+            <h2 style="background-color: #33333393; color: white;">Welcome to our Accessories Collection !</h2>
+            <p style="background-color: #33333379; color: white;">Search better quality accessor from our store.</p>
+            <!-- <form action="#" class="search-box">
+                <input type="text" placeholder="search recipe">
+                <button type="submit">search</button>
+            </form> -->
+            <form id="imageSearchForm" class="search-box" target="_blank">
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    placeholder="Search for images..." 
+                    autocomplete="off"
+                />
+                <button type="submit" id="searchButton">Search Acc</button>
+            </form>
+            
+            <p id="queryDisplay" style="text-align:center; font-size:1rem; color: #444; margin-top: 10px;"></p>
+                  
+            
+        </div>
+       </section>
+
+
+       
+
+    <section class="recipes" id="recipee">
+        <h2>Featured Accessories</h2>
+        <div class="recipe-section" id="recipe1">
+            <div class="recipe-card">
+                <img src="photos/PHOTO-2024-12-30-23-56-48.jpg" alt="">
+                <h2>Accessories</h2>
+                <P>Cricket accessories are essential gear that enhances performance, safety, and convenience on the field. These include bats crafted for precision and power, balls for varying formats, and protective gear like helmets, gloves, and pads to ensure safety. Other must-haves include sturdy cricket shoes for grip, kit bags to organize equipment, and specialized training aids to refine skills. High-quality accessories are crucial for every player, from beginners to professionals, to bring their best game to the pitch.</P>
+                <!-- <a href="#"> View recipe </a> -->
+            </diV>
+            <div class="recipe-card" id="recipe2">
+                <img src ="photos/bat.jpg" alt="">
+                <h2>Cricket Bat </h2>
+                <p> The cricket bat is one of the most crucial pieces of equipment in the game, designed for players to hit the ball effectively. Typically made from willow wood, the bat is carefully crafted for balance, power, and control. The bat’s sweet spot (usually located in the center) is where the ball should ideally make contact for maximum power and accuracy.
+                    Bats come in different shapes and sizes, tailored for various playing styles and formats (e.g., test, ODI, or T20). Some bats are lightweight for quick reflex shots, while others are heavier for power-hitting. The handle of the bat is designed to provide a comfortable grip, ensuring better control during play.
+                    Choosing the right cricket bat depends on a player's style—whether you're a power hitter or someone who values finesse and timing. A good bat is key to both performance and confidence on the field.</p>
+            </div>
+            <div class="recipe-card" id="recipe3">
+                <img src="photos/ball.jpg" alt="">
+                <h2>Cicket Balls</h2>
+                <P>The cricket ball is a critical piece of equipment that plays a pivotal role in the game. Made from a hard leather exterior and a cork core, the ball is designed to be durable and resilient to withstand intense play. It has a prominent seam that bowlers use to generate swing and spin, offering a variety of bowling techniques such as pace, spin, and swing.
+                    Cricket balls are available in different types, including red balls (used in longer formats like Test matches), white balls (used in limited-overs formats like ODIs and T20s), and pink balls (used in day-night Test matches). The condition of the ball changes as the game progresses, affecting its behavior and the strategies employed by bowlers and fielders.
+                    A well-maintained ball can make a significant difference in the outcome of a match, as it can aid bowlers in producing movement in the air or off the pitch.</P>
+                <!-- <a href="#"> View recipe </a> -->
+             </div>
+            <div class="recipe-card" id="recipe4">
+                <img src="photos/glubs.jpg" alt="">
+                <h2>Cricket Gloves</h2>
+                <P>Cricket gloves are an essential piece of protective equipment for both batsmen and wicketkeepers. Made from high-quality leather and padding, they are designed to offer a balance of protection, flexibility, and comfort.
+                    For batsmen, the gloves are designed with additional protection on the back of the hand, fingers, and palms, where the ball could potentially cause injury during a fast-paced delivery. The padded fingers are crucial for defending against sharp deliveries, while the flexible design ensures ease of movement and grip on the bat handle.</P>
+                <!-- <a href="#"> View recipe </a> -->
+            </div>
+            <div class="recipe-card" id="recipe5">
+                <img src="photos/l-guard.jpg"alt="">
+                <h2>Abdominal guard</h2>
+                <P>An abdominal guard, commonly referred to as a box, is a vital piece of protective gear in cricket and other contact sports. It is designed to safeguard the male groin area, specifically the testicles and penis, from potential impact or injury. Made from durable materials such as plastic or composite materials, the abdominal guard is lightweight yet provides substantial protection.
+                </P>
+                <!-- <a href="#"> View recipe </a> -->
+            </div>
+
+        </div>
+   </section>
+
+   <section class="recipes1" id="about">
+    <h2 style="text-align: center;">Featured Accessories</h2>
+    <div class="scroll-container1">
+        <div class="scroll-content1">
+            <div class="recipe-card1">
+                <img src="photos/PHOTO-2024-12-30-23-56-48.jpg" alt="">
+                <h2>Accessories</h2>
+            </div>
+            <div class="recipe-card1">
+                <img src="photos/bat.jpg" alt="">
+                <h2>Bats</h2>
+            </div>
+            <div class="recipe-card1">
+                <img src="photos/ball.jpg" alt="">
+                <h2>Balls</h2>
+            </div>
+            <div class="recipe-card1">
+                <img src="photos/PHOTO-2024-12-30-23-56-48.jpg" alt="">
+                <h2>Accessories</h2>
+            </div>
+            <div class="recipe-card1">
+                <img src="photos/glubs.jpg" alt="">
+                <h2>Gloves</h2>
+            </div>
+            
+            <div class="recipe-card1">
+                <img src="photos/l-guard.jpg" alt="">
+                <h2>L-guard</h2>
+            </div>
+            <div class="recipe-card1">
+                <img src="photos/pads.jpg" alt="">
+                <h2>Pads</h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+    
+    <section class="contact" id="contact">
+        <h2>Contact Us</h2>
+        <form id="contact-form">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" placeholder="Enter your full name" required>
+    
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" placeholder="Enter your phone number" required>
+    
+            <button type="button" id="send-otp">Send OTP</button>
+            <input type="text" id="otp" placeholder="Enter OTP" style="display: none;" required>
+    
+            <label for="message">Message</label>
+            <textarea id="message" placeholder="Enter your message" required></textarea>
+    
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+    
+
+       <footer>
+        <div>
+          <p>Thankyou for visiting our website</p>  
+        </div>
+       </footer> 
+    </body>
+    <script>
+
+        /* for header */
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuIcon = document.getElementById('menu-icon');
+            const menu = document.getElementById('menu');
+
+            
+            menuIcon.addEventListener('click', function () {
+                menu.classList.toggle('active');
+            });
+
+            
+            const menuLinks = document.querySelectorAll('#menu a');
+            menuLinks.forEach(link => {
+                link.addEventListener('click', function () {
+                    menuLinks.forEach(link => link.parentElement.classList.remove('active'));
+                    link.parentElement.classList.add('active');
+                });
+            });
+        });
+
+
+
+
+
+            /* search bar */
+            document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('imageSearchForm');
+            const searchInput = document.getElementById('searchInput');
+            const queryDisplay = document.getElementById('queryDisplay');
+            
+            const examples = ["Bat", "Ball", "Helmet", "Glubs", "Pad"];
+            let index = 0;
+        
+            setInterval(() => {
+                searchInput.placeholder = `e.g., ${examples[index]}`;
+                index = (index + 1) % examples.length;
+            }, 2000); 
+        
+            
+            searchInput.addEventListener('input', () => {
+                queryDisplay.textContent = searchInput.value 
+                    ? `Searching for: "${searchInput.value}"` 
+                    : '';
+            });
+        
+            
+            form.addEventListener('submit', (e) => {
+                e.preventDefault(); 
+        
+                const query = searchInput.value.trim();
+        
+                if (!query) {
+                    alert("Please enter a search term!");
+                    return;
+                }
+        
+                const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(query)}&tbm=isch`;
+                window.open(searchUrl, '_blank');
+            });
+        });
+
+
+
+        /* mera recipe section*/        
+        document.querySelector('.scroll-container1').addEventListener('mouseover', () => {
+            document.querySelector('.scroll-content1').style.animationPlayState = 'paused';
+        });
+
+        document.querySelector('.scroll-container1').addEventListener('mouseout', () => {
+            document.querySelector('.scroll-content1').style.animationPlayState = 'running';
+        });
+
+
+        /* riya ka recipe section */
+        document.addEventListener("DOMContentLoaded", function() {
+            const recipeCards = document.querySelectorAll(".recipe-card");
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                } else {
+                    entry.target.classList.remove('active');
+                }
+                });
+            }, { threshold: 0.6 }); 
+
+            
+            recipeCards.forEach(card => {
+                observer.observe(card);
+            });
+        });
+
+
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+        const sendOtpBtn = document.getElementById('send-otp');
+        const otpInput = document.getElementById('otp');
+        const contactForm = document.getElementById('contact-form');
+        let generatedOtp;
+        
+        sendOtpBtn.addEventListener('click', () => {
+            const phoneNumber = document.getElementById('phone').value;
+            if (!phoneNumber) {
+                alert("Please enter a valid phone number.");
+                return;
+            }
+
+            generatedOtp = Math.floor(1000 + Math.random() * 9000);
+            alert(`Your OTP is: ${generatedOtp} (shi shi enter krna)`);
+
+            otpInput.style.display = 'block';
+        });
+
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const enteredOtp = otpInput.value;
+        if (enteredOtp != generatedOtp) {
+            alert("bola tha OTP shi shi enter krna. retry kar ab !!.");
+            return;
+        }
+
+        const name = document.getElementById('name').value;
+        const phone = document.getElementById('phone').value;
+        const message = document.getElementById('message').value;
+
+        sendMessageToEmail(name, phone, message);
+    });
+
+    function sendMessageToEmail(name, phone, message) {
+        const serviceID = "service_o7krp5l";
+        const templateID = "template_32nkj9q";
+        const userID = "BmJ9LTG8Q8wjufAxd";
+
+        const templateParams = {
+            from_name: name,
+            phone_number: phone,
+            message: message
+        };
+
+        emailjs.send(serviceID, templateID, templateParams, userID)
+            .then(() => {
+                alert("Message sent successfully!");
+                contactForm.reset();
+                otpInput.style.display = 'none';
+            })
+            .catch((err) => {
+                console.error("Failed to send email:", err);
+                alert("Thankyou for your message !");
+            });
+            }
+        });
+
+    </script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        (function() {
+            emailjs.init("BmJ9LTG8Q8wjufAxd"); 
+        })();
+    </script>
+        
+</html>
